@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+
+dist/
+
+# IDE temporary files
+.idea/
+
+
+# Environment varibales
+.env*
+!.env*.example
