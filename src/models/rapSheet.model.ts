@@ -1,9 +1,16 @@
 import mongoose from "mongoose"
+import {SHAPES} from "./diamond.model";
 
 const rapSheetSchema = new mongoose.Schema({
     reportIdentifier: {
       type: mongoose.Schema.Types.String,
       required: false
+    },
+    shape: {
+        type: mongoose.Schema.Types.String,
+        enum: Object.keys(SHAPES),
+        required: true,
+        index: true
     },
     weightFrom: {
       type: mongoose.Schema.Types.Number,

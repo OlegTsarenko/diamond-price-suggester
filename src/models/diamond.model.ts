@@ -1,23 +1,26 @@
 import mongoose from "mongoose"
-import {extend} from "joi";
 
-// TODO tests
-// Strict sequences, don't change! Using in price calculator
-enum Shape { Sound, Princess, Cushion, Marquise, Emerald, Other}
-enum Color { D, E, F, G, H, I, J, K, L, 'M-Z'}
-enum ClarityGrades{ FL, IF, VVS1, VVS2, VS1, VS2, SI1, SI2, I1, I2, I3}
-
-interface DiamondCharacteristic {
-    shape: Shape,
-    weight: number,
-    color: Color,
-    clarity: ClarityGrades
+// Name, Position in RapSheet Matrix
+const SHAPES:Record<string, number> = {
+    round: 0,
+    princess : 1,
+    cushion: 2,
+    marquise: 3,
+    emerald: 4,
+    other: 5
 }
+const COLORS:Record<string, number> = {
+    D: 0, E: 1, F: 2, G: 3, H: 4, I: 5, J: 6, K: 7, L: 8, 'M-Z': 9
+}
+const CLARITY_GRADES:Record<string, number> = {
+    FL: 0, IF: 1, VVS1: 2, VVS2: 3, VS1: 4, VS2: 5, SI1: 6, SI2: 7, I1: 8, I2: 9, I3: 10
+}
+const CHARACTERISTIC_LIST:string[] = ['shape', 'weight', 'color', 'clarity']
 
 const diamondSchema = new mongoose.Schema({
     shape: {
       type: mongoose.Schema.Types.String,
-      enum: Shape,
+      enum: Object.keys(SHAPES),
       required: true,
       index: true
     },
@@ -30,13 +33,13 @@ const diamondSchema = new mongoose.Schema({
     },
     color: {
       type: mongoose.Schema.Types.String,
-      enum: Color,
+      enum: Object.keys(COLORS),
       required: true,
       index: true
     },
     clarity: {
       type: mongoose.Schema.Types.String,
-      enum: ClarityGrades,
+      enum: Object.keys(CLARITY_GRADES),
       required: true,
       index: true
     },
@@ -64,6 +67,6 @@ const diamondSchema = new mongoose.Schema({
 
 const Diamond = mongoose.model('Diamond', diamondSchema)
 
-export { Diamond, Shape, Color, ClarityGrades, DiamondCharacteristic }
+export { Diamond, SHAPES, COLORS, CLARITY_GRADES, CHARACTERISTIC_LIST }
 
 

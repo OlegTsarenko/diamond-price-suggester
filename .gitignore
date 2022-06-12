@@ -1,11 +1,11 @@
 # Dependencies
 node_modules
 
-dist/
+dist
+coverage
 
 # IDE temporary files
 .idea/
-
 
 # Environment varibales
 .env*

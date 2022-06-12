@@ -20,7 +20,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(helmet())
 app.use(mongoSanitize())
 
-
 // app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(openapiSpec));
 
 app.use('/', homeRouter)
