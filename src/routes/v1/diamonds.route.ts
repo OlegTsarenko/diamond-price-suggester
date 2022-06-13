@@ -1,14 +1,13 @@
-import express from "express"
-import validate from "../../middleware/validate"
-import { diamondParams } from "../../validations/diamond.validation"
-import { suggest } from "../../controllers/diamonds.controller"
+import express from 'express';
+import validate from '../../middleware/validate';
+import { diamondParams } from '../../validations/diamond.validation';
+import { suggest } from '../../controllers/diamonds.controller';
 
-const router = express.Router()
+const router = express.Router();
 
-router
-  .get('/diamonds/suggestion', validate(diamondParams), suggest);
+router.get('/diamonds/suggestion', validate(diamondParams), suggest);
 
-export default router
+export default router;
 
 /**
  * @swagger

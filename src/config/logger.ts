@@ -1,12 +1,12 @@
-import winston from "winston"
-import config from "./config"
+import winston from 'winston';
+import config from './config';
 
 const enumerateErrorFormat = winston.format((info) => {
   if (info instanceof Error) {
-    Object.assign(info, { message: info.stack })
+    Object.assign(info, { message: info.stack });
   }
-  return info
-})
+  return info;
+});
 
 const logger = winston.createLogger({
   level: config.env === 'development' ? 'debug' : 'info',
@@ -21,6 +21,6 @@ const logger = winston.createLogger({
       stderrLevels: ['error'],
     }),
   ],
-})
+});
 
-export default logger
+export default logger;

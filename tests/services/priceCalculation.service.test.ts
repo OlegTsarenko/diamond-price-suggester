@@ -1,6 +1,3 @@
 describe('Sample Test', () => {
-  xit('should test that true === true', () => {
-
-  })
-})
-
+  xit('should test that true === true', () => {});
+});

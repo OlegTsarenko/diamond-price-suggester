@@ -1,8 +1,8 @@
-import Joi from 'joi'
-import { StatusCodes } from 'http-status-codes'
+import Joi from 'joi';
+import { StatusCodes } from 'http-status-codes';
 import { Request, Response, NextFunction } from 'express';
-import pick from '../utils/pick'
-import ApiError from '../utils/ApiError'
+import pick from '../utils/pick';
+import ApiError from '../utils/ApiError';
 
 const validate = (schema: any) => (req: Request, res: Response, next: NextFunction) => {
   const validSchema = pick(schema, ['params', 'query', 'body']);
@@ -20,4 +20,4 @@ const validate = (schema: any) => (req: Request, res: Response, next: NextFuncti
   return next();
 };
 
-export default validate
+export default validate;

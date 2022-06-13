@@ -1,7 +1,7 @@
-import mongoose from "mongoose"
-import app from "./app"
-import logger from "./config/logger"
-import config from "./config/config"
+import mongoose from 'mongoose';
+import app from './app';
+import logger from './config/logger';
+import config from './config/config';
 
 try {
   mongoose.connect(config.mongoose.url).then(() => {
@@ -11,10 +11,8 @@ try {
     });
   });
 } catch (error) {
-  logger.info(error)
+  logger.info(error);
 }
-
-
 
 // import express, { Express, Request, Response } from 'express';
 //

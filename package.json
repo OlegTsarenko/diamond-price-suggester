@@ -9,8 +9,8 @@
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/index.js\"",
     "test": "jest",
     "seed": "tsc src/seeds/seeder.ts && node dist/src/seeds/seeder.js",
-    "lint": "eslint ./src --ext .ts",
-    "lint:fix": "eslint ./src --ext .ts --fix --color"
+    "lint": "eslint ./src ./tests --ext .ts",
+    "lint:fix": "eslint ./src ./tests --ext .ts --fix"
   },
   "husky": {
     "hook": {

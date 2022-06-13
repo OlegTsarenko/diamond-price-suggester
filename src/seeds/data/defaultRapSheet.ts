@@ -1,78 +1,91 @@
-import parse from "../../utils/parseTestMatrix"
+import parse from '../../utils/parseTestMatrix';
 
 const rapSheet = (shape: string) => {
-  return [{
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.01,
-    weightTo: 0.03,
-    priceMatrix: parse(
+  return [
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.01,
+      weightTo: 0.03,
+      priceMatrix: parse(
         `8.0 7.2 6.3 5.6 4.7 4.1 3.5 2.8
 7.2 6.4 5.7 5.0 4.3 3.7 3.1 2.6
 6.6 5.9 5.2 4.6 3.9 3.3 2.8 2.4
 4.6 4.1 3.6 3.2 2.8 2.5 2.0 1.6
-3.1 2.7 2.4 2.0 1.8 1.6 1.4 1.2`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.04,
-    weightTo: 0.07,
-    priceMatrix: parse(
+3.1 2.7 2.4 2.0 1.8 1.6 1.4 1.2`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.04,
+      weightTo: 0.07,
+      priceMatrix: parse(
         `9.1 8.2 7.1 6.1 5.1 4.5 4.0 3.1
 7.8 7.0 6.2 5.5 4.7 4.2 3.6 2.8
 7.1 6.3 5.7 5.0 4.4 3.9 3.3 2.6
 4.9 4.4 4.0 3.5 3.1 2.7 2.2 1.7
-3.3 2.9 2.6 2.2 1.9 1.7 1.5 1.3`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.08,
-    weightTo: 0.14,
-    priceMatrix: parse(
+3.3 2.9 2.6 2.2 1.9 1.7 1.5 1.3`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.08,
+      weightTo: 0.14,
+      priceMatrix: parse(
         `10.6 9.6 8.5 7.6 6.8 5.7 4.8 4.0
 9.3 8.5 7.7 6.9 6.2 5.2 4.3 3.6
 8.4 7.7 7.0 6.3 5.6 4.8 3.9 3.2
 6.6 5.9 5.3 4.7 4.0 3.4 2.8 2.3
-4.3 3.9 3.5 3.0 2.6 2.2 1.9 1.6`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.15,
-    weightTo: 0.17,
-    priceMatrix: parse(
+4.3 3.9 3.5 3.0 2.6 2.2 1.9 1.6`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.15,
+      weightTo: 0.17,
+      priceMatrix: parse(
         `12.5 11.1 9.8 8.7 7.6 6.4 5.2 4.4
 11.0 9.9 8.7 7.7 6.8 5.7 4.7 4.0
 10.1 9.0 7.8 6.9 6.0 5.2 4.3 3.6
 7.7 6.8 5.9 5.1 4.3 3.7 3.1 2.6
-5.3 4.7 4.1 3.6 3.1 2.6 2.2 1.8`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.18,
-    weightTo: 0.22,
-    priceMatrix: parse(
+5.3 4.7 4.1 3.6 3.1 2.6 2.2 1.8`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.18,
+      weightTo: 0.22,
+      priceMatrix: parse(
         `15.1 13.0 11.0 9.5 8.3 6.9 5.6 4.8
 13.5 11.7 10.0 8.6 7.4 6.3 5.1 4.3
 11.6 10.1 8.7 7.6 6.6 5.6 4.6 3.9
 8.7 7.5 6.5 5.6 4.8 4.0 3.4 2.8
-6.9 5.9 5.1 4.3 3.6 2.9 2.4 2.0`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.23,
-    weightTo: 0.29,
-    priceMatrix: parse(
+6.9 5.9 5.1 4.3 3.6 2.9 2.4 2.0`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.23,
+      weightTo: 0.29,
+      priceMatrix: parse(
         `18.3 15.9 12.9 10.8 9.0 7.6 6.0 5.1
 16.1 13.9 11.4 9.6 8.2 6.9 5.5 4.6
 13.3 11.6 9.8 8.4 7.2 6.2 5.0 4.2
 10.5 9.1 7.8 6.7 5.7 4.6 3.7 3.0
-8.6 7.4 6.2 5.3 4.6 3.6 2.8 2.2`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.30,
-    weightTo: 0.39,
-    priceMatrix: parse(
+8.6 7.4 6.2 5.3 4.6 3.6 2.8 2.2`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.3,
+      weightTo: 0.39,
+      priceMatrix: parse(
         `39 31 29 27 25 23 20 18 16 11 7
 31 29 27 25 24 22 19 17 15 10 6
 30 28 26 24 23 21 18 16 14 10 6
@@ -82,13 +95,15 @@ const rapSheet = (shape: string) => {
 21 20 19 18 17 15 13 10 8 7 4
 19 18 17 16 15 13 11 9 7 6 4
 17 16 15 14 13 11 9 8 6 5 3
-15 14 13 12 11 10 8 7 5 4 3`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.40,
-    weightTo: 0.49,
-    priceMatrix: parse(
+15 14 13 12 11 10 8 7 5 4 3`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.4,
+      weightTo: 0.49,
+      priceMatrix: parse(
         `45 37 35 33 30 26 23 20 18 12 8
 38 35 33 31 29 25 22 19 17 11 7
 35 33 31 29 28 24 21 18 16 11 7
@@ -98,13 +113,15 @@ const rapSheet = (shape: string) => {
 24 23 22 21 20 17 15 13 11 8 5
 21 20 19 18 17 15 13 11 9 7 5
 19 18 17 16 15 13 11 9 8 6 4
-17 16 15 14 13 12 10 8 7 5 4`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.50,
-    weightTo: 0.69,
-    priceMatrix: parse(
+17 16 15 14 13 12 10 8 7 5 4`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.5,
+      weightTo: 0.69,
+      priceMatrix: parse(
         `70 58 52 48 45 38 31 27 23 16 11
 57 53 49 46 43 36 30 26 22 15 10
 50 48 46 44 41 35 29 25 21 14 10
@@ -114,13 +131,15 @@ const rapSheet = (shape: string) => {
 31 30 29 28 26 24 22 19 14 10 7
 26 25 24 23 22 20 18 16 12 9 7
 22 21 20 19 18 17 15 13 10 8 6
-20 19 18 17 16 15 13 10 9 7 5`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.70,
-    weightTo: 0.89,
-    priceMatrix: parse(
+20 19 18 17 16 15 13 10 9 7 5`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.7,
+      weightTo: 0.89,
+      priceMatrix: parse(
         `96 74 66 62 59 49 41 34 29 20 12
 74 69 63 59 56 47 39 32 28 19 11
 68 64 60 56 54 44 37 30 26 18 11
@@ -130,13 +149,15 @@ const rapSheet = (shape: string) => {
 40 38 36 34 32 29 27 23 20 14 8
 33 31 29 28 27 25 23 20 17 12 8
 29 27 25 24 23 22 20 16 14 10 7
-26 24 23 22 21 20 18 15 12 8 6`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 0.90,
-    weightTo: 0.99,
-    priceMatrix: parse(
+26 24 23 22 21 20 18 15 12 8 6`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 0.9,
+      weightTo: 0.99,
+      priceMatrix: parse(
         `143 126 110 97 85 69 58 47 38 23 15
 126 116 103 90 80 65 54 44 37 22 14
 115 107 95 83 75 62 50 42 36 21 13
@@ -146,13 +167,15 @@ const rapSheet = (shape: string) => {
 59 56 54 51 48 43 36 30 26 17 10
 49 47 45 42 40 36 31 26 23 15 9
 42 40 38 36 34 30 26 23 20 13 8
-37 35 33 31 29 27 23 21 17 11 7`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 1.0,
-    weightTo: 1.49,
-    priceMatrix: parse(
+37 35 33 31 29 27 23 21 17 11 7`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 1.0,
+      weightTo: 1.49,
+      priceMatrix: parse(
         `220 176 152 137 121 95 77 63 52 26 16
 171 155 141 129 113 90 73 60 50 25 15
 152 144 130 121 107 85 70 57 47 24 14
@@ -162,13 +185,15 @@ const rapSheet = (shape: string) => {
 72 69 66 62 59 55 49 43 35 20 12
 60 56 53 50 47 44 40 37 33 18 11
 50 47 45 43 41 37 34 32 29 17 10
-44 42 40 38 36 34 30 28 26 16 10`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 1.50,
-    weightTo: 1.99,
-    priceMatrix: parse(
+44 42 40 38 36 34 30 28 26 16 10`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 1.5,
+      weightTo: 1.99,
+      priceMatrix: parse(
         `284 245 213 191 166 134 110 90 75 36 18
 249 225 199 177 155 127 103 84 70 34 17
 220 200 178 162 145 119 96 82 67 33 16
@@ -178,13 +203,15 @@ const rapSheet = (shape: string) => {
 103 97 92 87 81 75 70 60 49 26 14
 85 79 75 71 67 63 58 52 45 24 13
 73 68 63 59 56 52 47 43 40 23 12
-64 59 53 50 47 44 41 38 35 22 12`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 2.0,
-    weightTo: 2.99,
-    priceMatrix: parse(
+64 59 53 50 47 44 41 38 35 22 12`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 2.0,
+      weightTo: 2.99,
+      priceMatrix: parse(
         `460 370 310 260 225 185 151 114 94 43 19
 375 330 285 240 210 175 141 107 90 41 18
 320 295 260 225 195 163 132 101 85 39 17
@@ -194,13 +221,15 @@ const rapSheet = (shape: string) => {
 145 136 128 118 112 105 95 76 66 30 14
 121 111 102 94 89 83 77 67 58 28 14
 99 91 82 76 71 67 63 57 50 27 13
-81 75 69 64 60 56 52 47 43 26 13`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 3.0,
-    weightTo: 3.99,
-    priceMatrix: parse(
+81 75 69 64 60 56 52 47 43 26 13`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 3.0,
+      weightTo: 3.99,
+      priceMatrix: parse(
         `700 560 490 410 350 275 225 149 107 49 21
 565 495 440 375 320 250 210 140 102 47 20
 475 425 380 335 295 230 195 133 97 45 19
@@ -210,13 +239,15 @@ const rapSheet = (shape: string) => {
 200 185 175 165 155 140 126 90 71 35 15
 160 150 140 135 125 115 103 76 62 33 15
 128 121 114 108 100 92 82 65 55 31 14
-105 99 93 87 82 77 67 58 47 30 14`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 4.0,
-    weightTo: 4.99,
-    priceMatrix: parse(
+105 99 93 87 82 77 67 58 47 30 14`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 4.0,
+      weightTo: 4.99,
+      priceMatrix: parse(
         `860 720 635 535 440 315 255 155 111 54 23
 685 615 550 490 410 295 240 145 106 52 22
 590 535 490 425 365 275 225 138 101 50 21
@@ -226,13 +257,15 @@ const rapSheet = (shape: string) => {
 230 215 200 190 175 155 140 95 75 39 17
 190 180 165 155 145 130 120 83 66 36 17
 155 145 135 125 115 105 100 73 59 34 16
-125 115 105 100 95 90 80 65 50 32 16`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 5.0,
-    weightTo: 5.99,
-    priceMatrix: parse(
+125 115 105 100 95 90 80 65 50 32 16`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 5.0,
+      weightTo: 5.99,
+      priceMatrix: parse(
         `1200 970 850 765 630 450 335 175 125 60 25
 905 825 745 670 570 415 315 170 120 57 23
 775 715 645 585 505 380 300 160 115 54 22
@@ -242,13 +275,15 @@ const rapSheet = (shape: string) => {
 300 275 255 240 220 205 180 120 88 43 19
 235 220 205 190 180 170 155 110 81 41 18
 190 175 165 155 145 135 125 100 69 37 17
-155 145 140 130 120 110 100 80 60 34 16`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 6.0,
-    weightTo: 59.99,
-    priceMatrix: parse(
+155 145 140 130 120 110 100 80 60 34 16`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 6.0,
+      weightTo: 59.99,
+      priceMatrix: parse(
         `1200 970 850 765 630 450 335 175 125 60 25
 905 825 745 670 570 415 315 170 120 57 23
 775 715 645 585 505 380 300 160 115 54 22
@@ -258,13 +293,15 @@ const rapSheet = (shape: string) => {
 300 275 255 240 220 205 180 120 88 43 19
 235 220 205 190 180 170 155 110 81 41 18
 190 175 165 155 145 135 125 100 69 37 17
-155 145 140 130 120 110 100 80 60 34 16`)
-  }, {
-    reportIdentifier: 'default',
-    shape: shape,
-    weightFrom: 10.0,
-    weightTo: 10.99,
-    priceMatrix: parse(
+155 145 140 130 120 110 100 80 60 34 16`
+      ),
+    },
+    {
+      reportIdentifier: 'default',
+      shape: shape,
+      weightFrom: 10.0,
+      weightTo: 10.99,
+      priceMatrix: parse(
         `1850 1480 1305 1180 990 665 490 250 140 66 27
 1380 1275 1155 1045 900 615 455 235 135 63 26
 1180 1110 1005 900 780 565 425 220 130 60 25
@@ -274,8 +311,10 @@ const rapSheet = (shape: string) => {
 470 430 400 375 350 305 250 150 110 49 21
 360 340 320 300 280 240 205 135 100 47 20
 285 270 250 230 215 195 165 120 85 45 19
-230 215 205 190 180 165 140 105 75 43 18`)
-  }]
-}
+230 215 205 190 180 165 140 105 75 43 18`
+      ),
+    },
+  ];
+};
 
-export default rapSheet
+export default rapSheet;
