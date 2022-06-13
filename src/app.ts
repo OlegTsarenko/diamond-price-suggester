@@ -9,8 +9,8 @@ import mongoSanitize from 'express-mongo-sanitize'
 import homeRouter from './routes/index'
 import priceRouter from './routes/v1/prices.route'
 
-// import swaggerUI from "swagger-ui-express";
-// import openapiSpec from "./config/swagger.js";
+import swaggerUI from "swagger-ui-express";
+import openapiSpec from "./config/swagger";
 
 const app: Express = express();
 
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(helmet())
 app.use(mongoSanitize())
 
-// app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(openapiSpec));
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(openapiSpec));
 
 app.use('/', homeRouter)
 app.use('/api/v1', priceRouter)

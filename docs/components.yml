@@ -1,0 +1,35 @@
+components:
+  schemas:
+    ValidationError:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Error message
+      example: {
+        message: "\"color\" must be one of [D, E, F, G, H, I, J, K, L, M-Z]"
+      }
+
+    PriceSuggestion:
+      type: object
+      required:
+        - basic_price
+        - average_price_by_deals
+        - average_price_by_estimation
+      properties:
+        basicPrice:
+          type: number
+          description: The price witch calculated from Rap Sheet tables
+        averagePriceByDeals:
+          type: number
+          description: The price witch calculated from Rap Sheet tables
+        averagePriceByEstimations:
+          type: number
+          description: The price witch calculated from Rap Sheet tables
+      example: {
+        basicPrice: 145.33,
+        averagePriceByDeals: 150.33,
+        averagePriceByEstimations: 148.00
+      }
