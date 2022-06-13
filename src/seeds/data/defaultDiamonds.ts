@@ -1,8 +1,8 @@
 import { SHAPES, COLORS, CLARITY_GRADES } from "../../models/diamond.model"
-import { calculateByCharacteristics } from "../../services/priceCalculation.service"
+import { priceByRapSheet } from "../../services/priceCalculation.service"
 import { round, random } from "lodash";
 
-const TEST_DIAMOND_COUNT = 100
+const TEST_DIAMOND_COUNT = 1000
 
 const maxValueFor = (source: Record<string, number>):number => {
   return Object.keys(source).length - 1
@@ -21,7 +21,7 @@ const generateDiamonds = async ()=> {
     const weight = round(random(0.01, 10.99, true), 2);
     const color = randomKeyFor(COLORS)
     const clarity = randomKeyFor(CLARITY_GRADES)
-    const basicPrice = await calculateByCharacteristics(shape, weight, color, clarity)
+    const basicPrice = await priceByRapSheet(shape, weight, color, clarity)
     const estimatePrice = basicPrice + basicPrice * random(-0.3,0.3, true)
 
     const diamond = {

@@ -13,8 +13,9 @@ const COLORS:Record<string, number> = {
     D: 0, E: 1, F: 2, G: 3, H: 4, I: 5, J: 6, K: 7, L: 8, 'M-Z': 9
 }
 const CLARITY_GRADES:Record<string, number> = {
-    FL: 0, IF: 1, VVS1: 2, VVS2: 3, VS1: 4, VS2: 5, SI1: 6, SI2: 7, I1: 8, I2: 9, I3: 10
+  IF: 0, VVS1: 1, VVS2: 2, VS1: 3, VS2: 4, SI1: 5, SI2: 6, SI3: 7, I1: 8, I2: 9, I3: 10
 }
+
 const CHARACTERISTIC_LIST:string[] = ['shape', 'weight', 'color', 'clarity']
 
 const diamondSchema = new mongoose.Schema({
