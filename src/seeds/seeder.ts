@@ -3,7 +3,7 @@ import config from "../config/config";
 import defaultRapSheet from './data/defaultRapSheet'
 import generateDiamonds from './data/defaultDiamonds'
 import RapSheet from "../models/rapSheet.model";
-import {Diamond, SHAPES} from "../models/diamond.model";
+import {DiamondModel, SHAPES} from "../models/diamond.model";
 
 const start = async () =>{
     await mongoose.connect(config.mongoose.url)
@@ -14,9 +14,9 @@ const start = async () =>{
              RapSheet.insertMany(defaultRapSheet(shapeName))
         })
 
-        await Diamond.deleteMany()
-        const diamonds = await generateDiamonds()
-        await Diamond.insertMany(diamonds)
+        await DiamondModel.deleteMany()
+        const diamonds = await generateDiamonds(5000)
+        await DiamondModel.insertMany(diamonds)
     } catch (e) {
         console.log(`Something went wrong, ${(e as Error).message}`)
         console.log((e as Error).stack)

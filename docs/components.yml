@@ -11,6 +11,12 @@ components:
       example: {
         message: "\"color\" must be one of [D, E, F, G, H, I, J, K, L, M-Z]"
       }
+    DiamondSuggestion:
+      type: array
+      items:
+        type: object
+        properties:
+          id: number
 
     PriceSuggestion:
       type: object

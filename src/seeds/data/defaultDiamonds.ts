@@ -2,8 +2,6 @@ import { SHAPES, COLORS, CLARITY_GRADES } from "../../models/diamond.model"
 import { priceByRapSheet } from "../../services/priceCalculation.service"
 import { round, random } from "lodash";
 
-const TEST_DIAMOND_COUNT = 1000
-
 const maxValueFor = (source: Record<string, number>):number => {
   return Object.keys(source).length - 1
 }
@@ -13,10 +11,10 @@ const randomKeyFor = (source: Record<string, number>):string => {
   return Object.keys(source)[random_index]
 }
 
-const generateDiamonds = async ()=> {
+const generateDiamonds = async (count:number)=> {
   const diamonds = []
 
-  for (let i = 0; i < TEST_DIAMOND_COUNT; i++) {
+  for (let i = 0; i < count; i++) {
     const shape = randomKeyFor(SHAPES)
     const weight = round(random(0.01, 10.99, true), 2);
     const color = randomKeyFor(COLORS)

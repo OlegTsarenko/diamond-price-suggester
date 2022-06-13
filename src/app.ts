@@ -7,7 +7,8 @@ import helmet from 'helmet'
 import mongoSanitize from 'express-mongo-sanitize'
 
 import homeRouter from './routes/index'
-import priceRouter from './routes/v1/prices.route'
+import pricesRouter from './routes/v1/prices.route'
+import diamondsRouter from './routes/v1/diamonds.route'
 
 import swaggerUI from "swagger-ui-express";
 import openapiSpec from "./config/swagger";
@@ -23,7 +24,8 @@ app.use(mongoSanitize())
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(openapiSpec));
 
 app.use('/', homeRouter)
-app.use('/api/v1', priceRouter)
+app.use('/api/v1', pricesRouter)
+app.use('/api/v1', diamondsRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)

@@ -1,28 +1,28 @@
 import express from "express"
 import validate from "../../middleware/validate"
 import { diamondParams } from "../../validations/diamond.validation"
-import { suggest } from "../../controllers/prices.controller"
+import { suggest } from "../../controllers/diamonds.controller"
 
 const router = express.Router()
 
 router
-  .get('/prices/suggestion', validate(diamondParams), suggest);
+  .get('/diamonds/suggestion', validate(diamondParams), suggest);
 
 export default router
 
 /**
  * @swagger
  * tags:
- *   name: Prices
- *   description: Price API to get different types of price for diamonds
+ *   name: Diamonds
+ *   description: Diamonds API
  */
 
 /**
  * @swagger
- * /prices/suggestion:
+ * /diamonds/suggestion
  *   get:
- *     summary: Returns prices calculation by different methods according to the given parameters
- *     tags: [Prices]
+ *     summary: Returns list of 25 similar diamonds
+ *     tags: [Diamonds]
  *     parameters:
  *       - in: path
  *         name: shape
@@ -59,7 +59,7 @@ export default router
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/PriceSuggestion'
+ *               $ref: '#/components/schemas/DiamondSuggestion'
  *       400:
  *         description: Validation error
  *         content:
