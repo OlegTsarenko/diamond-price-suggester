@@ -10,15 +10,12 @@
     "test": "jest",
     "seed": "tsc src/seeds/seeder.ts && node dist/src/seeds/seeder.js",
     "lint": "eslint ./src ./tests --ext .ts",
-    "lint:fix": "eslint ./src ./tests --ext .ts --fix"
+    "lint:fix": "eslint ./src ./tests --ext .ts --fix",
+    "prepare": "husky install"
   },
-  "husky": {
-    "hook": {
-      "pre-commit": "npm run lint"
-    }
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+  "lint-staged":  {
+    "src/**/*.ts": "npm run lint",
+    "test/**/*.ts": "npm run lint"
   },
   "author": "Oleg Tsarenko",
   "license": "ISC",
@@ -52,6 +49,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-security": "^1.5.0",
+    "husky": "^8.0.1",
     "jest": "^28.1.1",
     "lint-staged": "^13.0.1",
     "mongodb-memory-server": "^8.6.0",
