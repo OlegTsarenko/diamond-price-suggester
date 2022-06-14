@@ -18,7 +18,7 @@ export default router;
 
 /**
  * @swagger
- * /diamonds/suggestion
+ * /diamonds/suggestion:
  *   get:
  *     summary: Returns list of 25 similar diamonds
  *     tags: [Diamonds]
