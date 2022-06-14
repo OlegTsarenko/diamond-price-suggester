@@ -12,7 +12,7 @@ describe('Diamond characteristic', () => {
   });
 
   it('Clarity should has proper position', () => {
-    const result = { FL: 0, IF: 1, VVS1: 2, VVS2: 3, VS1: 4, VS2: 5, SI1: 6, SI2: 7, I1: 8, I2: 9, I3: 10 };
+    const result = { IF: 0, VVS1: 1, VVS2: 2, VS1: 3, VS2: 4, SI1: 5, SI2: 6, SI3: 7, I1: 8, I2: 9, I3: 10 };
     expect(CLARITY_GRADES).toEqual(result);
   });
 });

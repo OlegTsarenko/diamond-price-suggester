@@ -60,7 +60,7 @@ const averagePriceBy = async (fieldName: string, shape: string, weight: number, 
       avgRate: { $avg: '$rate' },
     });
 
-  return result ? round(result[0].avgRate * weight, 2) : null;
+  return result.length ? round(result[0].avgRate * weight, 2) : null;
 };
 
-export { suggestPrices };
+export { suggestPrices, priceByRapSheet };

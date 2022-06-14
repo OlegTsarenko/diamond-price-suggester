@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/index.js\"",
-    "test": "jest",
+    "test": "tsc && jest dist/tests\n",
     "seed": "tsc src/seeds/seeder.ts && node dist/src/seeds/seeder.js",
     "lint": "eslint ./src ./tests --ext .ts",
     "lint:fix": "eslint ./src ./tests --ext .ts --fix",
