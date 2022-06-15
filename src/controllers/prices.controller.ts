@@ -12,8 +12,7 @@ import ApiError from '../utils/ApiError';
 
 const suggest = async (req: Request, res: Response, next: NextFunction) => {
   const params = pick(req.query, CHARACTERISTIC_LIST);
-  const arg: [string, number, string, string] = [params['shape'], params['weight'], params['color'], params['clarity']];
-  const prices = await suggestPrices(...arg);
+  const prices = await suggestPrices(params);
 
   res.status(StatusCodes.OK).json(prices);
 };

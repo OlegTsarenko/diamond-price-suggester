@@ -1,18 +1,19 @@
 import RapSheet from '../models/rapSheet.model.js';
 import * as Diamond from '../models/diamond.model.js';
 import ApiError from '../utils/ApiError';
-import { round } from 'lodash';
+import round from 'lodash/round';
+import DiamondCharacteristic from '../interfaces/DiamondCharacteristic';
 
-/**
+/*
  * TODO
  *  Need to handle cases with weight bigger than 11 carats
  *  Diamonds large 3-10ct+ sizes may trade at significant different price!
  */
-const suggestPrices = async (...arg: [string, number, string, string]) => {
+const suggestPrices = async (characteristic: DiamondCharacteristic) => {
   const results = await Promise.all([
-    priceByRapSheet(...arg),
-    averagePriceBy('soldPrice', ...arg),
-    averagePriceBy('estimatePrice', ...arg),
+    priceByRapSheet(characteristic),
+    averagePriceBy('soldPrice', characteristic),
+    averagePriceBy('estimatePrice', characteristic),
   ]);
 
   return {
@@ -22,37 +23,47 @@ const suggestPrices = async (...arg: [string, number, string, string]) => {
   };
 };
 
-const priceByRapSheet = async (shape: string, weight: number, color: string, clarity: string) => {
-  const rapSheet = await RapSheet.findOne({ shape: shape, weightFrom: { $lte: weight }, weightTo: { $gte: weight } }).sort({
+const priceByRapSheet = async (characteristic: DiamondCharacteristic) => {
+  const rapSheet = await RapSheet.findOne({
+    shape: characteristic.shape,
+    weightFrom: { $lte: characteristic.weight },
+    weightTo: { $gte: characteristic.weight },
+  }).sort({
     createdAt: -1,
   });
 
   if (rapSheet === null) {
-    throw new ApiError(404, `Appropriate RapSheet not found. (shape: ${shape}, weight: ${weight})`);
+    throw new ApiError(
+      404,
+      `Appropriate RapSheet not found. (shape: ${characteristic.shape}, weight: ${characteristic.weight})`
+    );
   }
 
-  const rate = findRate(rapSheet, color, clarity);
+  const rate = findRate(rapSheet, characteristic);
 
   // To get price in USD from RapSheet need to multiplication rate to 100
-  return rate * 100 * weight;
+  return rate * 100 * characteristic.weight;
 };
 
-const findRate = (rapSheet: any, color: string, clarity: string): number => {
+const findRate = (rapSheet: any, characteristic: DiamondCharacteristic): number => {
   const normalizedRapSheet = rapSheet.normalizedPriceMatrix();
-  const colorPosition: number = Diamond.COLORS[color];
-  const clarityPosition: number = Diamond.CLARITY_GRADES[clarity];
+  const colorPosition: number = Diamond.COLORS[characteristic.color];
+  const clarityPosition: number = Diamond.CLARITY_GRADES[characteristic.clarity];
   const rate = normalizedRapSheet[colorPosition][clarityPosition];
 
   return rate;
 };
 
-const averagePriceBy = async (fieldName: string, shape: string, weight: number, color: string, clarity: string) => {
+const averagePriceBy = async (fieldName: string, characteristic: DiamondCharacteristic) => {
   const result = await Diamond.DiamondModel.aggregate()
     .match({
-      shape: shape,
-      weight: { $gte: Diamond.similarWeight(weight).from, $lte: Diamond.similarWeight(weight).to },
-      color: { $in: Diamond.similarCharacteristic(color, weight, Diamond.COLOR_GROUPS) },
-      clarity: { $in: Diamond.similarCharacteristic(clarity, weight, Diamond.CLARITY_GROUPS) },
+      shape: characteristic.shape,
+      weight: {
+        $gte: Diamond.similarWeight(characteristic.weight).from,
+        $lte: Diamond.similarWeight(characteristic.weight).to,
+      },
+      color: { $in: Diamond.similarCharacteristic(characteristic.color, characteristic.weight, Diamond.COLOR_GROUPS) },
+      clarity: { $in: Diamond.similarCharacteristic(characteristic.clarity, characteristic.weight, Diamond.CLARITY_GROUPS) },
     })
     .addFields({
       rate: { $divide: [`$${fieldName}`, '$weight'] },
@@ -62,7 +73,7 @@ const averagePriceBy = async (fieldName: string, shape: string, weight: number, 
       avgRate: { $avg: '$rate' },
     });
 
-  return result.length ? round(result[0].avgRate * weight, 2) : null;
+  return result.length ? round(result[0].avgRate * characteristic.weight, 2) : null;
 };
 
 export { suggestPrices, priceByRapSheet };

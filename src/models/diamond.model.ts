@@ -21,7 +21,7 @@ const COLORS: Record<string, number> = {
   J: 6,
   K: 7,
   L: 8,
-  'M-Z': 9,
+  M: 9,
 };
 const CLARITY_GRADES: Record<string, number> = {
   IF: 0,

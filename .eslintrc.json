@@ -12,6 +12,7 @@
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:prettier/recommended",
+        "plugin:lodash/recommended",
         "prettier"
     ],
     "parser": "@typescript-eslint/parser",
@@ -23,12 +24,15 @@
     "plugins": [
         "@typescript-eslint",
         "prettier",
-        "import"
+        "import",
+        "lodash"
     ],
     "rules": {
         "require-jsdoc": "off",
         "@typescript-eslint/ban-ts-comment": "off",
-        "@typescript-eslint/ban-types": "off"
+        "@typescript-eslint/ban-types": "off",
+        "lodash/import-scope": "off",
+        "lodash/prefer-lodash-method": [2, {"ignoreMethods": ["keys", "map", "values", "assign", "find"]}]
     },
     "settings": {
         "import/parsers": {

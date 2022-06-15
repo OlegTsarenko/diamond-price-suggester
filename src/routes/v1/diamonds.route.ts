@@ -3,6 +3,7 @@ import validate from '../../middleware/validate';
 import { diamondParams } from '../../validations/diamond.validation';
 import { suggest } from '../../controllers/diamonds.controller';
 
+// eslint-disable-next-line new-cap
 const router = express.Router();
 
 router.get('/diamonds/suggestion', validate(diamondParams), suggest);
@@ -42,7 +43,7 @@ export default router;
  *         name: color
  *         schema:
  *           type: string
- *           enum: [D, E, F, G, H, I, J, K, L, M-Z]
+ *           enum: [D, E, F, G, H, I, J, K, L, M]
  *         required: true
  *         description: Color of the diamond
  *       - in: path
