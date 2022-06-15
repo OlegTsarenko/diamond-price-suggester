@@ -1,5 +1,5 @@
 import { SHAPES, COLORS, CLARITY_GRADES } from '../../models/diamond.model';
-import { priceByRapSheet } from '../../services/priceCalculation.service';
+import { priceByRapSheet } from '../../services/priceSuggester.service';
 import { round, random } from 'lodash';
 
 const maxValueFor = (source: Record<string, number>): number => {

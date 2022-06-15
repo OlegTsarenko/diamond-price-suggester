@@ -9,14 +9,16 @@ import { round } from 'lodash';
  *  Diamonds large 3-10ct+ sizes may trade at significant different price!
  */
 const suggestPrices = async (...arg: [string, number, string, string]) => {
-  const priceByRapSheets = await priceByRapSheet(...arg);
-  const priceByDeals = await averagePriceBy('soldPrice', ...arg);
-  const priceByEstimations = await averagePriceBy('estimatePrice', ...arg);
+  const results = await Promise.all([
+    priceByRapSheet(...arg),
+    averagePriceBy('soldPrice', ...arg),
+    averagePriceBy('estimatePrice', ...arg),
+  ]);
 
   return {
-    basicPrice: priceByRapSheets,
-    averagePriceByDeals: priceByDeals,
-    averagePriceByEstimations: priceByEstimations,
+    basicPrice: results[0],
+    averagePriceByDeals: results[1],
+    averagePriceByEstimations: results[2],
   };
 };
 

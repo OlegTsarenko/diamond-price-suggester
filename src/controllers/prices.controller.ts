@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import pick from '../utils/pick.js';
-import { suggestPrices } from '../services/priceCalculation.service';
+import { suggestPrices } from '../services/priceSuggester.service';
 import { CHARACTERISTIC_LIST } from '../models/diamond.model';
 import ApiError from '../utils/ApiError';
 
