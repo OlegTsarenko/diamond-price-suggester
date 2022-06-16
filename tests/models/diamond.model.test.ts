@@ -7,7 +7,7 @@ describe('Diamond characteristic', () => {
   });
 
   it('Color should has proper position', () => {
-    const result = { D: 0, E: 1, F: 2, G: 3, H: 4, I: 5, J: 6, K: 7, L: 8, 'M-Z': 9 };
+    const result = { D: 0, E: 1, F: 2, G: 3, H: 4, I: 5, J: 6, K: 7, L: 8, M: 9 };
     expect(COLORS).toEqual(result);
   });
 

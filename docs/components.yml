@@ -9,7 +9,7 @@ components:
           type: string
           description: Error message
       example: {
-        message: "\"color\" must be one of [D, E, F, G, H, I, J, K, L, M-Z]"
+        message: "\"color\" must be one of [D, E, F, G, H, I, J, K, L, M]"
       }
     DiamondSuggestion:
       type: array
@@ -21,9 +21,9 @@ components:
     PriceSuggestion:
       type: object
       required:
-        - basic_price
-        - average_price_by_deals
-        - average_price_by_estimation
+        - basicPrice
+        - averagePriceByDeals
+        - averagePriceByEstimations
       properties:
         basicPrice:
           type: number

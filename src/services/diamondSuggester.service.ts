@@ -1,9 +1,9 @@
 import * as Diamond from '../models/diamond.model';
-import DiamondCharacteristic from '../interfaces/DiamondCharacteristic';
+import IDiamondCharacteristic from '../interfaces/IDiamondCharacteristic';
 
 const LIMIT = 25;
 
-const suggestDiamonds = async (characteristic: DiamondCharacteristic) => {
+const suggestDiamonds = async (characteristic: IDiamondCharacteristic) => {
   const diamonds = await Diamond.DiamondModel.aggregate()
     .match({
       shape: characteristic.shape,

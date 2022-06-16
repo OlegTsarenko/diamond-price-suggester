@@ -1,6 +1,6 @@
 import { SHAPES, COLORS, CLARITY_GRADES } from '../../models/diamond.model';
 import { priceByRapSheet } from '../../services/priceSuggester.service';
-import DiamondCharacteristic from '../../interfaces/DiamondCharacteristic';
+import IDiamondCharacteristic from '../../interfaces/IDiamondCharacteristic';
 import _ from 'lodash';
 
 const maxValueFor = (source: Record<string, number>): number => {
@@ -16,7 +16,7 @@ const generateDiamonds = async (count: number) => {
   const diamonds = [];
 
   for (let i = 0; i < count; i++) {
-    const characteristic: DiamondCharacteristic = {
+    const characteristic: IDiamondCharacteristic = {
       shape: randomKeyFor(SHAPES),
       weight: _.round(_.random(0.01, 10.99, true), 2),
       color: randomKeyFor(COLORS),

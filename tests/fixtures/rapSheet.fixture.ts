@@ -2,8 +2,9 @@
 // import faker from 'faker'
 // import rapSheet from '../../src/seeds/data/defaultRapSheet';
 import parse from '../../src/utils/parseTestMatrix';
+import RapSheet from '../../src/models/rapSheet.model';
 
-const rapSheetSmall = {
+const smallRapSheetData = {
   reportIdentifier: 'default',
   weightFrom: 0.01,
   weightTo: 0.03,
@@ -15,3 +16,9 @@ const rapSheetSmall = {
 3.1 2.7 2.4 2.0 1.8 1.6 1.4 1.2`
   ),
 };
+
+const smallRapSheet = () => {
+  return new RapSheet(smallRapSheetData);
+};
+
+export { smallRapSheet };

@@ -1,4 +1,4 @@
-export default interface DiamondCharacteristic {
+export default interface IDiamondCharacteristic {
   shape: string;
   weight: number;
   color: string;
